@@ -34,9 +34,10 @@ This Image Compressor analyzes pixel data within a given image to compute the pa
 The process of removing a seam essentially breaks down into three steps:
 
 - Compute the "energy" of each pixels, which represents how different that pixels brightness is compared to its 8 neighbors. - For each pixel, let the brightness of the 8 neighbors on a scale from 0 to 1 be denoted by TL, TM, TR, ML, MR, BL, BM, BR. The horizontal, vertical, and total energy of any pixel can be defined as:
-  $$
-  Horizontal\ Energy = (TL+2ML+BL)-(TR+2MR+BR)
-  $$
+
+$$
+Horizontal\ Energy = (TL+2ML+BL)-(TR+2MR+BR)
+$$
 
 $$
 Vertical\ Energy = (TL+2TM+TR)-(BL+2BM+BR)
