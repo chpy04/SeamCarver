@@ -35,20 +35,17 @@ The process of removing a seam essentially breaks down into three steps:
 
 - Compute the "energy" of each pixels, which represents how different that pixels brightness is compared to its 8 neighbors. - For each pixel, let the brightness of the 8 neighbors on a scale from 0 to 1 be denoted by TL, TM, TR, ML, MR, BL, BM, BR. The horizontal, vertical, and total energy of any pixel can be defined as:
   $$
-  \begin{equation}
-    Horizontal Energy = (TL+2ML+BL)-(TR+2MR+BR)
-  \end{equation}
+  Horizontal\ Energy = (TL+2ML+BL)-(TR+2MR+BR)
   $$
-  $$
-  \begin{equation}
-    Vertical Energy = (TL+2TM+TR)-(BL+2BM+BR)
-  \end{equation}
-  $$
-  $$
-  \begin{equation}
-    Energy = \sqrt{Horizontal Energy^2 + Vertical Energy^2}
-  \end{equation}
-  $$
+
+$$
+Vertical\ Energy = (TL+2TM+TR)-(BL+2BM+BR)
+$$
+
+$$
+Energy = \sqrt{Horizontal\ Energy^2 + Vertical\ Energy^2}
+$$
+
 - Find a path of pixels from top to bottom (or left to right) with the least possible combined energy of all pixels in the path. This is called a seam in this project.
   - Start with the top row (or left column), every pixels seam of least energy down to it from the top is only its own energy. Store this value in each of the pixels as the total seam weight.
   - Go to the next row below (or column to the right), for each pixel, find the pixel above it (either TL, TM, or TR) with the lowest total seam weight. Add that weight and its energy to produce its total seam weight. Store the pixel above it with the least seam weight as a field in the pixel.
